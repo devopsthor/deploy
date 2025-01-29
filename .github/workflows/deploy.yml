@@ -18,7 +18,7 @@ jobs:
     - name: Set up SSH key
       run: |
         echo "$EC2_SSH_PRIVATE_KEY" > private_key.pem
-        chmod 666 private_key.pem
+        chmod 600 private_key.pem
 
     # Step 3: Copy the index.html to EC2
     - name: Deploy to EC2
