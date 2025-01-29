@@ -14,7 +14,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    name: Deploy to EC2
+    - name: Deploy to EC2
       env:
         PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
         HOST: ${{ secrets.EC2_HOST }}
@@ -25,4 +25,3 @@ jobs:
         echo "Current directory: $(pwd)"
         echo "Listing home directory:"
         ls -la ~
-#.
