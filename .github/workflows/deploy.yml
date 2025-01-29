@@ -20,5 +20,5 @@ jobs:
       run: |
         pwd
         ls
-        chmod 400 pri.pem
-        ssh -i /home/runner/work/deploy/deploy/pri.pem ubuntu@98.84.144.56
+        chmod 400 private-key.pem
+        ssh -i /home/runner/work/deploy/deploy/private-key.pem ubuntu@98.84.144.56
