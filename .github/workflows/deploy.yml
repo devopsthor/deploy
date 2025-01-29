@@ -1,0 +1,29 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main  # Runs the workflow whenever there's a push to the 'main' branch.
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout the repository to get the code
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # Step 2: Set up SSH for connection to EC2
+    - name: Set up SSH key
+      run: |
+        echo "$EC2_SSH_PRIVATE_KEY" > private_key.pem
+        chmod 666 private_key.pem
+
+    # Step 3: Copy the index.html to EC2
+    - name: Deploy to EC2
+      run: |
+        scp -i private_key.pem index.html ubuntu@${{ secrets.EC2_IP_ADDRESS }}:/var/www/html/index.html
+      env:
+        EC2_SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+        EC2_IP_ADDRESS: ${{ secrets.EC2_IP_ADDRESS }}
