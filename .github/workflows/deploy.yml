@@ -19,4 +19,4 @@ jobs:
         pwd
         ls
         chmod 600 private-key.pem
-        ssh -i /home/runner/work/deploy/deploy/private-key.pem ${USER}@${HOST}
+        ssh -i /home/runner/work/deploy/deploy/private-key.pem ubuntu@98.84.144.56
