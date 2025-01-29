@@ -22,6 +22,6 @@ jobs:
       run: |
         pwd
         ls
-        echo $PRIVATE_KEY
-        ssh -i $PRIVATE_KEY $HOST@$USER 
+        echo $PRIVATE_KEY > pri.pem
+        ssh -i pri.pem $HOST@$USER 
   
