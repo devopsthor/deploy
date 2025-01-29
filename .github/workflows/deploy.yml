@@ -17,6 +17,7 @@ jobs:
     # Step 2: Set up SSH for connection to EC2
     - name: Set up SSH key
       run: |
+        whoami
         echo "$EC2_SSH_PRIVATE_KEY" > private_key.txt
         cat private_key.txt
         chmod 600 private_key.pem
