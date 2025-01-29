@@ -20,6 +20,7 @@ jobs:
         HOST: ${{ secrets.EC2_HOST }}
         USER: ${{ secrets.EC2_USER }}
       run: |
+        chmod 600 private_key.pem
         ssh -o StrictHostKeyChecking=no -i private-key.pem ${USER}@${HOST}
         echo "Current directory: $(pwd)"
         echo "Listing home directory:"
