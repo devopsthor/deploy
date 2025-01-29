@@ -20,4 +20,4 @@ jobs:
       run: |
         pwd
         ls
-        ssh -i private-key.pem ubuntu@98.84.144.56
+        ssh -i /home/runner/work/deploy/deploy/private-key.pem ubuntu@98.84.144.56
