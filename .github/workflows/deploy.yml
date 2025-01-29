@@ -14,18 +14,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    # Step 2: Set up SSH for connection to EC2
-    - name: Set up SSH key
-      run: |
-        whoami
-        echo "$EC2_SSH_PRIVATE_KEY" > private_key.txt
-        cat private_key.txt
-        chmod 600 private_key.pem
-
-    # Step 3: Copy the index.html to EC2
-    - name: Deploy to EC2
-      run: |
-        scp -o StrictHostKeyChecking=no -i private_key.pem index.html ubuntu@98.84.144.56:/tmp/
+    name: Deploy to EC2
       env:
-        EC2_SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
-        EC2_IP_ADDRESS: ${{ secrets.EC2_IP_ADDRESS }}
+        PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
+        HOST: ${{ secrets.EC2_HOST }}
+        USER: ${{ secrets.EC2_USER }}
+      run: |
+        echo "$PRIVATE_KEY" > github-ec2.pem && chmod 600 github-ec2.pem
+        ssh -o StrictHostKeyChecking=no -i github-ec2.pem ${USER}@${HOST} '
+        echo "Current directory: $(pwd)"
+        echo "Listing home directory:"
+        ls -la ~
