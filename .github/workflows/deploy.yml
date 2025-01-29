@@ -23,7 +23,7 @@ jobs:
         pwd
         ls
         chmod 600 private_key.pem
-        ssh -o StrictHostKeyChecking=no -i private-key.pem ${USER}@${HOST}
+        ssh -o StrictHostKeyChecking=no -i /home/runner/work/deploy/deploy/private-key.pem ${USER}@${HOST}
         echo "Current directory: $(pwd)"
         echo "Listing home directory:"
         ls -la ~
