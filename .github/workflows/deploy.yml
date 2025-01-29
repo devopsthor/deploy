@@ -22,5 +22,5 @@ jobs:
       run: |
         pwd
         ls
-        echo $"EC2_HOST" 
+        echo ${{ secrets.EC2_USER }}
   
