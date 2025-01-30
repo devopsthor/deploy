@@ -21,4 +21,5 @@ jobs:
         pwd
         ls
         chmod 400 private-key.pem
-        ssh -o StrictHostKeyChecking=no -i /home/runner/work/deploy/deploy/private-key.pem ubuntu@98.84.144.56
+        scp -o StrictHostKeyChecking=no -i /home/runner/work/deploy/deploy/private-key.pem index.html ubuntu@3.84.185.49:/var/www/html/
+        ssh -o StrictHostKeyChecking=no -i /home/runner/work/deploy/deploy/private-key.pem ubuntu@3.84.185.49
