@@ -20,6 +20,6 @@ jobs:
       run: |
         pwd
         ls
-        chmod 400 private-key.pem
-        scp -o StrictHostKeyChecking=no -i /home/runner/work/deploy/deploy/private-key.pem index.html ubuntu@3.84.185.49:/tmp/
-        ssh -o StrictHostKeyChecking=no -i /home/runner/work/deploy/deploy/private-key.pem ubuntu@3.84.185.49
+        chmod 400 pri.pem
+        scp -o StrictHostKeyChecking=no -i /home/runner/work/deploy/deploy/pri.pem index.html ubuntu@3.84.185.49:/tmp/
+        ssh -o StrictHostKeyChecking=no -i /home/runner/work/deploy/deploy/pri.pem ubuntu@3.84.185.49
